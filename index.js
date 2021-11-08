@@ -38,12 +38,12 @@ async function loadNextContact(URL) {
     const contactResponse = await response.text()
     contact = JSON.parse(contactResponse)
     console.log(contactResponse)
-    console.log("Contact: " + contact.firstName);
+    console.log("contact: " + contact.firstName);
     contactArray.push(contact); 
     document.getElementById("contactsID").innerHTML = JSON.stringify(contactArray);
     console.log(contactArray)
 
-    //vince helped me with this the status. i originally had it printing if statements for contactRequest.readyState
+    //vince helped me with this. i originally had it printing if statements for contactRequest.readyState
     //but it was not updating properly.
 
 /*   if (contactRequest.readyState == 0) {
@@ -57,6 +57,7 @@ async function loadNextContact(URL) {
         } else if (contactRequest.readyState == 4) {
             document.getElementById("statusID").innerHTML = "Complete; object has finished initializing";}
 */
+
 
     document.getElementById("statusID").innerHTML = "status: " + statusCounter;
     i++;
