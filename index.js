@@ -10,18 +10,14 @@ function initApplication() {
 async function loadIndex() {
     const response = await fetch("https://mustang-index.azurewebsites.net/index.json")
     const contactIndex = await response.text()
-
-    console.log("Index JSON:\n\n" + contactIndex);
+    console.log(contactIndex);
     document.getElementById("indexID").innerHTML = contactIndex
-    
-
     const response2 = await fetch("https://mustang-index.azurewebsites.net/index.json")
     const contactIndexJ = await response2.json()
-
+    
     for (i=0; i<contactIndexJ.length; i++) {
         contactURLArray.push(contactIndexJ[i].ContactURL);
-    }
-    console.log("contactURL: " + JSON.stringify(contactURLArray));
+    } console.log("contactURL: " + JSON.stringify(contactURLArray));
 }
 
 function loadContacts() {
@@ -67,8 +63,6 @@ async function loadNextContact(URL) {
         statusCounter = "";
         statusCounter = statusCounter + "all contacts loaded";
     }
-
-   
 
     loadingContact++;
     if (contactURLArray.length > loadingContact) {
